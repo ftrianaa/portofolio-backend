@@ -1,6 +1,6 @@
 module.exports = exports = (app, pool) => {
      app.get('/api/experiences', (request, response) => {
-          const query = `SELECT * FROM experiences ORDER BY createdAt`
+          const query = `SELECT * FROM experiences ORDER BY "createdAt"`
 
           pool.query(query, (error, result) => {
                if (error) {
