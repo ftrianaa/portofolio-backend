@@ -1,6 +1,6 @@
 module.exports = exports = (app, pool) => {
-     app.get('/api/experiences', (request, response) => {
-          const query = `SELECT * FROM experiences ORDER BY createdAt`
+     app.get('/api/contacts', (request, response) => {
+          const query = `SELECT * FROM contacts ORDER BY createdAt`
 
           pool.query(query, (error, result) => {
                if (error) {
@@ -15,6 +15,5 @@ module.exports = exports = (app, pool) => {
                     })
                }
           })
-
      })
 }

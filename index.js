@@ -15,8 +15,10 @@ app.use(
 app.get('/', (request, response) => {
      response.send('Hello World!')
 })
+
 global.config = require('./configs/postgresql')
 require('./services/experiencesService')(app, global.config.pool)
+require('./services/contactsService')(app, global.config.pool)
 
 app.listen(port, () => {
      console.log(`App listen on port ${port}`)
