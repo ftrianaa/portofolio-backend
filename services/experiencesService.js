@@ -20,7 +20,7 @@ module.exports = exports = (app, pool) => {
 
           const { title, desc, link, preview, tags } = request.body
           const query = `INSERT INTO experiences("title", "desc", "link", "preview", "tags", "createdAt")
-               VALUES ("${title}", "${desc}", "${link}", "${preview}", ARRAY"${tags}", now())`;
+               VALUES ("${title}", "${desc}", "${link}", "${preview}", "{Next.js}", now())`;
 
           pool.query((query), (error, result) => {
                if (error) {
