@@ -16,7 +16,7 @@ module.exports = exports = (app, pool) => {
                }
           })
      })
-     app.post('/api/experience/create', (request, response) => {
+     app.post('/api/create/experience', (request, response) => {
           const { title, desc, link, preview, tags } = request.body
           const query = `INSERT INTO experiences("title","desc","link","preview","tags","createdAt")
                          VALUES (${title},${desc},${link},${preview},${tags},now())`
