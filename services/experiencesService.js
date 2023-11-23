@@ -15,6 +15,24 @@ module.exports = exports = (app, pool) => {
                     })
                }
           })
+     })
+     app.post('/api/experience/create', (request, response) => {
+          const { title, desc, link, preview, tags } = request.body
+          const query = `INSERT INTO experiences("title","desc","link","preview","tags","createdAt")
+                         VALUES (${title},${desc},${link},${preview},${tags},now())`
 
+          pool.query((query), (error, result) => {
+               if (error) {
+                    response.send(400, {
+                         success: false,
+                         data: error
+                    })
+               } else {
+                    response.send(200, {
+                         success: true,
+                         data: `Data experience has been saved!`
+                    })
+               }
+          })
      })
 }
