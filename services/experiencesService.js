@@ -17,9 +17,10 @@ module.exports = exports = (app, pool) => {
           })
      })
      app.post('/api/create/experience', (request, response) => {
+
           const { title, desc, link, preview, tags } = request.body
           const query = `INSERT INTO experiences("title","desc","link","preview","tags","createdAt")
-                         VALUES (${title},${desc},${link},${preview},${tags},now())`
+                         VALUES (${title},${desc},${link},${preview},${tags},"now()")`
 
           pool.query((query), (error, result) => {
                if (error) {
